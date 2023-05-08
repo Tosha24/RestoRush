@@ -1,0 +1,95 @@
+/* for whole webpage */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: antiquewhite;
+}
+
+section{
+    border: 1px solid red;
+    /* margin: 2%; */
+    padding: 2%;
+}
+
+/* section1: header */
+#my-backgroundImage{
+    background-image: url('./images/hp.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+    /* margin: 0.5%; */
+    padding: 1%;
+    color:  white;
+}
+.my-navbar{
+    /* border: 1px solid white; */
+    color: white;
+    display: inline-block;
+    font-size: 20px;
+}
+.my-float-left{
+    float: left;
+}
+.my-float-right{
+    float: right;
+}
+
+.my-text-center{
+    /* border: 1px solid white; */
+    clear: both;
+    margin: 7%;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+}
+.my-text-center-subtitle{
+    /* border: 1px solid white; */
+    font-size: 35px;
+    font-weight: normal;
+}
+#my-search-bar{
+    font-size: 25px;
+}
+input[type="search"]{
+    height: 30px;
+    width: 16%;
+    border-radius: 4px;
+    text-align: center;
+}
+input[type="button"]{
+    height: 30px;
+    border-radius: 4px;
+}
+li{
+    list-style-type: none;
+    display: inline;
+    margin: 16px;
+    font-weight: 700;
+}
+
+/* section2: sidebar and section3: content box */
+/* .float-container{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 49.8%;
+} */
+
+/* section2: offers */
+.mycont{
+  padding: 0px 20%;
+  align-content: center;
+}
+
+/* section3: footer */
+#footer{
+    background-color: rgb(243, 243, 243);
+    /* padding: 2%;        give padding only on left and right like in zomato */
+}
+
+
+/* for smaller screens */
+@media (min-width: 768px) {
+
+ }

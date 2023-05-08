@@ -1,0 +1,1496 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Restro - The Restuarant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<!-- <body onload="checkCookie()"> -->
+
+<body>
+    <!-- modal for welcoming logged in user -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Welcome <span id="user">$User</span>
+                    <p>You are logged in successfully!!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Thank you!!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Navbar section -->
+    <section>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="./images/logo.jpeg" alt="" width="30" height="30"
+                        class="d-inline-block align-text-top">Restro - The Restuarant</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="dropdown"
+                                    aria-expanded="false">Menu</a>
+                                <!-- menu dropdown -->
+                                <ul class="dropdown-menu bg-light">
+                                    <li><a class="dropdown-item" href="#panelsStayOpen-headingOne">Chatpate Chats</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#panelsStayOpen-headingTwo">Soups</a></li>
+                                    <li><a class="dropdown-item" href="#panelsStayOpen-headingThree">Starters</a></li>
+                                    <li><a class="dropdown-item" href="#panelsStayOpen-headingFour">From Oriental</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#panelsStayOpen-headingFive">Kids Special</a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="#panelsStayOpen-headingSix">North Indian-Jugal
+                                            Bandi</a></li>
+                                    <li><a class="dropdown-item" href="#panelsStayOpen-headingSeven">Ghar Ki Rasoi</a>
+                                    </li>
+                                    <li><a class="dropdown-item"
+                                            href="#panelsStayOpen-headingEight">Roti/Naan/Parathas</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                    <!-- profile image -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item d-flex">
+                            <div class="dropdown">
+                                <a href="#" data-bs-toggle="dropdown">
+                                    <i class="fa fa-user mx-2" style="font-size: 30px;"></i></a>
+                                <ul class="dropdown-menu bg-light" id="profile">
+                                    <li><a class="dropdown-item" href="#" data-bs-toggle="offcanvas"
+                                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i
+                                                class="fa fa-shopping-cart"></i> View
+                                            Cart</a></li>
+                                    <li><a class="dropdown-item" href="./index.html"><i class="fa fa-sign-out"></i>
+                                            Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- search bar -->
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!-- offcanvas to view cart -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            $name of food, price add
+        </div>
+        <div class="offcanvas-footer">
+            Price of food item
+        </div>
+    </div>
+
+    <!-- restuarant image -->
+    <section>
+        <img src="./images/hp.jpg" class="img-fluid my-image">
+    </section>
+
+    <!-- Menu Section -->
+    <section>
+        <div class="container-fluid mt-5">
+            <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
+                <!-- Accordion 1 : Chatpate chats-->
+                <div class="accordion-item">
+                    <!-- Title of accordian -->
+                    <h4 class="accordion-header" id="panelsStayOpen-headingOne">
+                        <p class="accordion" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseOne">
+                            Chatpate Chats <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                            </svg>
+                        </p>
+                    </h4>
+                    <!-- cards -->
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+                        aria-labelledby="panelsStayOpen-headingOne">
+                        <div class="accordion-body">
+                            <div class="row row-cols-lg-6 row-cols-md-4 row-cols-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/panipuri.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pani Puri</h5>
+                                            <p class="card-text">₹40 (250gm/6pcs)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent(); includePrice(40)">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/bhel.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Bhel</h5>
+                                            <p class="card-text">₹75 (200gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/sevpuri.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sev puri</h5>
+                                            <p class="card-text">₹75 (120gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/dahipuri.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Dahi Puri</h5>
+                                            <p class="card-text">₹75 (200gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/dahivada.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Dahi vada</h5>
+                                            <p class="card-text">₹75 (250gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/dahipapdichat.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Dahi Papdi Chat</h5>
+                                            <p class="card-text">₹85 (200gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/samosa.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Samosa</h5>
+                                            <p class="card-text">₹85 (200gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/tikkichat.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Tikki chat</h5>
+                                            <p class="card-text">₹85 (180gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/choletikki.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Tikki choley</h5>
+                                            <p class="card-text">₹90 (250gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/delhichat.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Delhi Chat</h5>
+                                            <p class="card-text">₹90 (250gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/rajkachori.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Raj Kachori</h5>
+                                            <p class="card-text">₹90 (250gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/basketchat.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Basket Chat</h5>
+                                            <p class="card-text">₹90 (250gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/cholebhature.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Chole Bature</h5>
+                                            <p class="card-text">₹160 (350gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/paneertikka.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Paneer Tikka Dry
+                                            </h5>
+                                            <p class="card-text">₹220 (250gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion 2 : Soups-->
+                <div class="accordion-item">
+                    <!-- title of accordion -->
+                    <h4 class="accordion-header" id="panelsStayOpen-headingTwo">
+                        <p class="accordion" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseTwo">
+                            Soups <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                            </svg>
+                        </p>
+                    </h4>
+                    <!-- cards -->
+                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingTwo">
+                        <div class="accordion-body">
+                            <div class="row row-cols-lg-6 row-cols-md-4 row-cols-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/sweetcornsoup.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sweet corn soup</h5>
+                                            <p class="card-text">₹85</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/manchow.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Manchow Soup</h5>
+                                            <p class="card-text">₹85</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/tomatosoup.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cream of Tomato Soup</h5>
+                                            <p class="card-text">₹85</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/hotandsour.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hot & Sour Soup</h5>
+                                            <p class="card-text">₹85</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion 3 : Starters-->
+                <div class="accordion-item">
+                    <h4 class="accordion-header" id="panelsStayOpen-headingThree">
+                        <p class="accordion" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseThree">
+                            Starters <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                            </svg>
+                        </p>
+                    </h4>
+                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingThree">
+                        <div class="accordion-body">
+                            <div class="row row-cols-lg-6 row-cols-md-4 row-cols-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/paneerchili.jpg" class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Paneer Chilli</h5>
+                                            <p class="card-text">₹150</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/harabharakebab.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hara Bhara Kebab</h5>
+                                            <p class="card-text">₹199</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/vegcrispy.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Crispy Veg</h5>
+                                            <p class="card-text">₹120</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/springroll.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Veg Spring Rolls</h5>
+                                            <p class="card-text">₹150</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/drymanchurian.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Manchurian (Dry)</h5>
+                                            <p class="card-text">₹110</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/gravymanchurian.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Manchurian (Gravy)</h5>
+                                            <p class="card-text">₹120</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/chilibabycorn.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Chilli Baby Corn</h5>
+                                            <p class="card-text">₹170</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/chilipotato.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Crispy Chili Potato</h5>
+                                            <p class="card-text">₹120</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion 4 : From Oriental -->
+                <div class="accordion-item">
+                    <!-- title of accordion -->
+                    <h4 class="accordion-header" id="panelsStayOpen-headingFour">
+                        <p class="accordion" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseFour">
+                            From Oriental <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                            </svg>
+                        </p>
+                    </h4>
+                    <!-- cards -->
+                    <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingFour">
+                        <div class="accordion-body">
+                            <div class="row row-cols-lg-6 row-cols-md-4 row-cols-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/hakkanoodles.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hakka Noodles</h5>
+                                            <p class="card-text">₹140</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/schezwan noodles.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Schezwan Noodles</h5>
+                                            <p class="card-text">₹150</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/friedrice.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Veg Fried Rice</h5>
+                                            <p class="card-text">₹140</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/schezwanfriedrice.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Schezwan Fried Rice</h5>
+                                            <p class="card-text">₹150</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/chowmein.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Veg Chowmein</h5>
+                                            <p class="card-text">₹140</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/chinesebhel.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Chinese Bhel</h5>
+                                            <p class="card-text">₹150</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/noodleswithmanchurian.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Noodles with Manchurian</h5>
+                                            <p class="card-text">₹180</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/friedricewithmanchurian.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Fried Rice with Manchurian</h5>
+                                            <p class="card-text">₹180</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion 5 : Kids special-->
+                <div class="accordion-item">
+                    <h4 class="accordion-header" id="panelsStayOpen-headingFive">
+                        <p class="accordion" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseFive">
+                            Kids Special <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                            </svg>
+                        </p>
+                    </h4>
+                    <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingFive">
+                        <div class="accordion-body">
+                            <div class="row row-cols-lg-6 row-cols-md-4 row-cols-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/vegetableburger.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Vegetable Burger</h5>
+                                            <p class="card-text">₹90</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/mintcheeseburger.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Minty Cheese Burger</h5>
+                                            <p class="card-text">₹100</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/americanburger.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">American Burger</h5>
+                                            <p class="card-text">₹100</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/vegsandwich.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Vegetable Sandwich</h5>
+                                            <p class="card-text">₹70</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/aloosandwich.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Aloo Mutter Sandwich</h5>
+                                            <p class="card-text">₹80</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/cheesesandwich.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cheese Sandwich</h5>
+                                            <p class="card-text">₹90</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/cheesechutney.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cheese Chutney Sandwich</h5>
+                                            <p class="card-text">₹95</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/chilicheesetomato.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cheese Chilly Tomato Sandwich</h5>
+                                            <p class="card-text">₹95</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/mexicansandwich.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Mexican Grilled Sandwich</h5>
+                                            <p class="card-text">₹95</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/vegetablecheesesandwich.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Veg Cheese Sandwich</h5>
+                                            <p class="card-text">₹100</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/clubsandwich.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Vegetable Club Sandwich</h5>
+                                            <p class="card-text">₹110</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/margherita.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Margherita Pizza</h5>
+                                            <p class="card-text">₹150</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/caponionpizza.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Capsicum Onion</h5>
+                                            <p class="card-text">₹150</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/mushroomonionPizza.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Mushroom Onion</h5>
+                                            <p class="card-text">₹150</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/cornpinepizza.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Corn & Pineapple</h5>
+                                            <p class="card-text">₹160</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/bbqpaneer.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">BBQ Paneer</h5>
+                                            <p class="card-text">₹160</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/jainpizza.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Jain Pizza</h5>
+                                            <p class="card-text">₹140</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion 6 : North Indian - jugal bandi-->
+                <div class="accordion-item">
+                    <!-- title of accordion -->
+                    <h4 class="accordion-header" id="panelsStayOpen-headingSix">
+                        <p class="accordion" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseSix">
+                            North Indian-Jugal Bandi <svg xmlns="http://www.w3.org/2000/svg" width="16" hSix="16"
+                                fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                            </svg>
+                        </p>
+                    </h4>
+                    <!-- cards -->
+                    <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingSix">
+                        <div class="accordion-body">
+                            <div class="row row-cols-lg-6 row-cols-md-4 row-cols-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/palakpaneer.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Palak Paneer</h5>
+                                            <p class="card-text">₹180</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/paneerbuttermasala.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Paneer Butter Masala</h5>
+                                            <p class="card-text">₹195</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/paneerlababdar.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Paneer Lababdar</h5>
+                                            <p class="card-text">₹195</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/shahipaneer.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Amritsari Shahi Paneer</h5>
+                                            <p class="card-text">₹195</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/kadaipaneer.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Kadai Paneer</h5>
+                                            <p class="card-text">₹195</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/vegetableKadai.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Vegetable Kadai</h5>
+                                            <p class="card-text">₹180</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/vegetablekolhapuri.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Vegetable Kolhapuri</h5>
+                                            <p class="card-text">₹180</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/mixvegetable.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Mix Vegetable</h5>
+                                            <p class="card-text">₹180</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/vegetablenawabi.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Vegetable Nawabi</h5>
+                                            <p class="card-text">₹180</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/palakcorncapsicum.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Palak Corn Capsicum</h5>
+                                            <p class="card-text">₹180</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/methimuttermasala.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Methi Mutter Malai</h5>
+                                            <p class="card-text">₹190</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/malaikofta.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Malai Kofta</h5>
+                                            <p class="card-text">₹190</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/jeerarice.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Jeera Rice + Dal Makhani</h5>
+                                            <p class="card-text">₹160</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/vegpulao.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Veg Pulao + Dal Tadka</h5>
+                                            <p class="card-text">₹160</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/vegetablebiryani.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Vegetable Biryani + Raita</h5>
+                                            <p class="card-text">₹170</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/hyderabadibiryani.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hyderabadi Biryani + Raita</h5>
+                                            <p class="card-text">₹170</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/cheesebuttermasala.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cheese Butter Masala</h5>
+                                            <p class="card-text">₹220</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion 7 : Ghar ki Rasoi-->
+                <div class="accordion-item">
+                    <!-- title of accordion -->
+                    <h4 class="accordion-header" id="panelsStayOpen-headingSeven">
+                        <p class="accordion" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseSeven" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseSeven">
+                            Ghar Ki Rasoi <svg xmlns="http://www.w3.org/2000/svg" width="16" hSix="16"
+                                fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                            </svg>
+                        </p>
+                    </h4>
+                    <!-- cards -->
+                    <div id="panelsStayOpen-collapseSeven" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingSeven">
+                        <div class="accordion-body">
+                            <div class="row row-cols-lg-6 row-cols-md-4 row-cols-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/rajmachawal.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Rajma + Chawal</h5>
+                                            <p class="card-text">₹150</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/cholechawal.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Choley + Chawal</h5>
+                                            <p class="card-text">₹150</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/sarsonkasaag.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sarson ka saag + Makai ki Roti</h5>
+                                            <p class="card-text">₹210</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/dalkhichdi.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Dal Khichdi + Raita</h5>
+                                            <p class="card-text">₹120</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accordion 8 : Roti/Naan/Parathas -->
+                <div class="accordion-item">
+                    <h4 class="accordion-header" id="panelsStayOpen-headingEight">
+                        <p class="accordion" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#panelsStayOpen-collapseEight" aria-expanded="true"
+                            aria-controls="panelsStayOpen-collapseEight">
+                            Roti/Naan/Parathas <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                            </svg>
+                        </p>
+                    </h4>
+                    <div id="panelsStayOpen-collapseEight" class="accordion-collapse collapse"
+                        aria-labelledby="panelsStayOpen-headingEight">
+                        <div class="accordion-body">
+                            <div class="row row-cols-lg-6 row-cols-md-4 row-cols-2 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/plainroti.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Plain Roti</h5>
+                                            <p class="card-text">₹25 (40gm)</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/butterroti.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Butter Roti</h5>
+                                            <p class="card-text">₹30</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/plainnaan.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Plain Naan</h5>
+                                            <p class="card-text">₹45</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/butternaan.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Butter Naan</h5>
+                                            <p class="card-text">₹55</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/garlicnaan.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Garlic Naan</h5>
+                                            <p class="card-text">₹65</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/cheesenaan.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cheese Naan</h5>
+                                            <p class="card-text">₹70</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/cheesegarlicnaan.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Cheese Garlic Naan</h5>
+                                            <p class="card-text">₹80</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/butterkulcha.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Butter Kulcha</h5>
+                                            <p class="card-text">₹55</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/lachaparatha.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Lacha Paratha</h5>
+                                            <p class="card-text">₹55</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/missiroti.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Missi Roti</h5>
+                                            <p class="card-text">₹55</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/raita.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Raita/Curd</h5>
+                                            <p class="card-text">₹55</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/greensalad.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Green Salad</h5>
+                                            <p class="card-text">₹70</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/roastedpapad.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Roasted Papad</h5>
+                                            <p class="card-text">₹20</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/masalapapad.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Masala Papad</h5>
+                                            <p class="card-text">₹30</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="./images/buttermilk.jpg" class="card-img-top" alt="">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Masala Chas</h5>
+                                            <p class="card-text">₹30</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0">
+                                            <button type="button" class="btn btn-info addCart"
+                                                onclick="handlingEvent()">Add to Cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            // $('#exampleModal').modal('show');
+            $('#exampleModal').modal('hide');
+        })
+    </script>
+
+    <!-- Cookie for login and logout deleting cookie left -->
+    <!-- <script>
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkCookie() {
+            let user = getCookie("username");
+            if (user != "") {
+                alert("Welcome again " + user);
+            } else {
+                user = prompt("Please enter your name:", "");
+                if (user != "" && user != null) {
+                    setCookie("username", user, 30);
+                }
+            }
+        }
+    </script> -->
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
